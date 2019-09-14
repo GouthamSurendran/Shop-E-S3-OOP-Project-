@@ -114,6 +114,7 @@ private void addAll(){
 		}
 		else if(p.getSource()==bb3) {
 			setVisible(false);
+			dispose();
 			editprof t =new editprof("EditProfile");
 		}
 		else if(p.getSource()==bb4) {

@@ -113,7 +113,7 @@ public class Homepage extends JFrame implements ActionListener{
 			setVisible(false);
 			String s1=tf1.getText();
 			String s2=pf1.getText();
-			if(s1.equals(s2)) {
+			if(!s1.equals("") && !s2.equals("")) {
 				Secondpage t= new Secondpage("Shop-E");
 				}
 			else{
