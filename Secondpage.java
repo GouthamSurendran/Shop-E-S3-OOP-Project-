@@ -1,3 +1,4 @@
+package logins;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -6,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Secondpage extends JFrame implements ActionListener {
@@ -21,6 +23,18 @@ public class Secondpage extends JFrame implements ActionListener {
 	JButton bb2;
 	ImageIcon i3;
 	JPanel panel3;
+	JPanel panel1;
+	JLabel image2;
+	
+	
+	//main
+	
+	
+	JLabel welcome;
+	JLabel what;
+	JButton smart;
+	JButton appliances;
+	JButton clothes;
 	
 	Secondpage(){
 		super();
@@ -31,14 +45,16 @@ public class Secondpage extends JFrame implements ActionListener {
 		super(s);
 		panel2=new JPanel();
 		bb1=new JButton();
-		i2=new ImageIcon("/home/gautham/Desktop/Prjktsrc/more.jpg");
+		panel1=new JPanel();
+		image2=new JLabel();
+		i2=new ImageIcon("/home/sourag/Desktop/dots2.png");
 		bb3=new JButton("Edit Profile");
 		bb4=new JButton("View Cart");
 		bb5 = new JButton("Exclusive items");
 		bb6 = new JButton("Log Out");
 		bb7 = new JButton("Home");
 		bb2=new JButton();
-		i3=new ImageIcon("/home/gautham/Desktop/Prjktsrc/close.png");
+		i3=new ImageIcon("/home/sourag/Desktop/close.png");
 		panel3=new JPanel();
 		bb1.addActionListener(this);
 		bb2.addActionListener(this);
@@ -47,6 +63,18 @@ public class Secondpage extends JFrame implements ActionListener {
 		bb5.addActionListener(this);
 		bb6.addActionListener(this);
 		bb7.addActionListener(this);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		
+		//main
+		
+		welcome =new JLabel("Welcome to Shop-E");
+		what=new JLabel("What are you looking for ?");
+		smart=new JButton();
+		appliances = new JButton();
+		clothes = new JButton();
+		
 		addAll();
 	}	
 	
@@ -78,6 +106,13 @@ private void addAll(){
 	bb2.setBackground(Color.DARK_GRAY);
 	bb2.setBounds(160,0,40,40);
 	bb2.setIcon(i3);
+	ImageIcon nn=new ImageIcon("/home/sourag/Desktop/editprof2.png");
+	image2.setIcon(nn);
+	image2.setBounds(200,0,400,800);
+	panel1.setBounds(200,0,400,800);
+	panel1.add(image2);
+	add(panel1);
+	panel1.setVisible(false);
 	panel2.setBounds(0,0,800,800);
 	panel3.setBounds(0,0,200,800);
 	panel3.setBackground(Color.LIGHT_GRAY);
@@ -93,6 +128,37 @@ private void addAll(){
 	panel3.setLayout(null);
 	panel3.setVisible(false);
 	
+	//main
+	
+	welcome.setBounds(20,0,580,40);
+	welcome.setBackground(Color.DARK_GRAY);
+	welcome.setForeground(Color.GREEN);
+	welcome.setFont(new Font("Ariel",Font.ITALIC,26));
+	welcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+	panel2.add(welcome);
+	what.setBounds(0,40,600,40);
+	what.setBackground(Color.DARK_GRAY);
+	what.setForeground(Color.BLACK);
+	what.setFont(new Font("Ariel",Font.ITALIC,20));
+	what.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+	panel2.add(what);
+	
+	
+	ImageIcon smr=new ImageIcon("/home/sourag/Desktop/smart.jpeg");
+	smart.setBounds(0,80,600,173);
+	smart.setIcon(smr);
+	panel2.add(smart);
+	
+	ImageIcon apl=new ImageIcon("/home/sourag/Desktop/appliances.jpeg");
+	appliances.setBounds(0,253,600,173);
+	appliances.setIcon(apl);
+	panel2.add(appliances);
+	
+	ImageIcon clo=new ImageIcon("/home/sourag/Desktop/clothes.jpeg");
+	clothes.setBounds(0,426,600,173);
+	clothes.setIcon(clo);
+	panel2.add(clothes);
+	
 	add(panel2);
 	add(panel3);
 	setSize(600,600);
@@ -106,11 +172,13 @@ private void addAll(){
 			bb1.setVisible(false);
 			panel3.setVisible(true);
 			panel2.setVisible(false);
+			panel1.setVisible(true);
 		}
 		else if(p.getSource()==bb2) {
 			bb1.setVisible(true);
 			panel2.setVisible(true);
 			panel3.setVisible(false);
+			panel1.setVisible(false);
 		}
 		else if(p.getSource()==bb3) {
 			setVisible(false);
@@ -120,6 +188,18 @@ private void addAll(){
 		else if(p.getSource()==bb4) {
 			setVisible(false);
 			ViewCart s =new ViewCart("ViewCart");
+		}
+		else if(p.getSource()==bb5) {
+			this.dispose();
+			ExclusiveItems excl=new ExclusiveItems("Exclusive Items");
+		}
+		else if(p.getSource()==bb6) {
+			this.dispose();
+			Homepage n=new Homepage();
+		}
+		else if(p.getSource()==bb7) {
+			this.dispose();
+			Secondpage n=new Secondpage("Shop-E");
 		}
 	}
 	

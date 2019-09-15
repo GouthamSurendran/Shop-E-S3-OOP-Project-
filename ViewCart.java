@@ -43,6 +43,7 @@ public class ViewCart extends JFrame implements ActionListener{
 		  panel2=new JPanel();
 		  b.addActionListener(this);
 		  b1.addActionListener(this);
+		  this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		  addAll();
 		  
 	}
