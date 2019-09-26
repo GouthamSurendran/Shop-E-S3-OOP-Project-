@@ -43,9 +43,9 @@ public class editprof extends JFrame implements ActionListener{
 		tf2 = new JTextField();
 		tf3 = new JTextField();
 		tf4 = new JPasswordField();
-		Jb = new JButton("Save Changes");
-		image=new JLabel();
-		image2=new JLabel();
+		Jb  = new JButton("Save Changes");
+		image  = new JLabel();
+		image2 = new JLabel();
 		
 		//leftwindow code
 		
@@ -77,42 +77,47 @@ public class editprof extends JFrame implements ActionListener{
 		
 		jb1.setBounds(60,80,200,40);
 		panel2.add(jb1);
-		jb1.setFont(new Font("Kalimati",Font.PLAIN,18));
+		jb1.setFont(new Font("Kalimati",Font.ITALIC,18));
+		jb1.setForeground(Color.WHITE);
 		jb2.setBounds(60,160,200,40);
-		jb2.setFont(new Font("Kalimati",Font.PLAIN,18));
+		jb2.setFont(new Font("Kalimati",Font.ITALIC,18));
+		jb2.setForeground(Color.WHITE);
 		panel2.add(jb2);
 		jb3.setBounds(60,240,200,40);
-		jb3.setFont(new Font("Kalimati",Font.PLAIN,18));
+		jb3.setFont(new Font("Kalimati",Font.ITALIC,18));
+		jb3.setForeground(Color.WHITE);
 		panel2.add(jb3);
 		jb4.setBounds(60,320,200,40);
-		jb4.setFont(new Font("Kalimati",Font.PLAIN,18));
+		jb4.setFont(new Font("Kalimati",Font.ITALIC,18));
+		jb4.setForeground(Color.WHITE);
 		panel2.add(jb4);
 		
 		tf1.setBounds(280,80,180,35);
-		tf1.setBackground(Color.LIGHT_GRAY);
+		tf1.setBackground(new Color(0,0,0,15));
 		panel2.add(tf1);
 		tf2.setBounds(280,160,180,35);
-		tf2.setBackground(Color.lightGray);
+		tf2.setBackground(new Color(0,0,0,15));
 		panel2.add(tf2);
 		tf3.setBounds(280,240,180,35);
-		tf3.setBackground(Color.lightGray);
+		tf3.setBackground(new Color(0,0,0,15));
 		panel2.add(tf3);
 		tf4.setBounds(280,320,180,35);
-		tf4.setBackground(Color.lightGray);
+		tf4.setBackground(new Color(0,0,0,15));
 		panel2.add(tf4);
 		
 		Jb.setBounds(280,420,180,40);
 		panel2.add(Jb);
-		Jb.setBackground(Color.lightGray);
-		Jb.setFont(new Font("Kalimati",Font.BOLD,18));
-		ImageIcon n=new ImageIcon("/home/gautham/Desktop/OopMaster/editprof.jpeg");
-		ImageIcon nn=new ImageIcon("/home/gautham/Desktop/OopMaster/editprof2.png");
+		Jb.setBackground(new Color(0,0,0,15));
+		Jb.setForeground(Color.WHITE);
+		Jb.setFont(new Font("Kalimati",Font.PLAIN,18));
+		ImageIcon n=new ImageIcon("/home/gautham/Desktop/OopMaster/select.png");
+		ImageIcon nn=new ImageIcon("/home/gautham/Desktop/OopMaster/select.png");
 		image.setIcon(n);
 		image.setBounds(0,0,600,600);
 		panel2.add(image);
 		image2.setIcon(nn);
 		image2.setBounds(200,0,400,800);
-		panel1.setBounds(200,0,400,800);
+		panel1.setBounds(200,-5,400,800);
 		panel1.add(image2);
 		add(panel1);
 		panel1.setVisible(false);
@@ -146,7 +151,7 @@ public class editprof extends JFrame implements ActionListener{
 		bb2.setIcon(i3);
 		panel2.setBounds(0,0,600,600);
 		panel3.setBounds(0,0,200,600);
-		panel3.setBackground(Color.LIGHT_GRAY);
+		panel3.setBackground(Color.DARK_GRAY);
 		panel3.add(bb2);
 		panel3.add(bb3);
 		panel3.add(bb4);

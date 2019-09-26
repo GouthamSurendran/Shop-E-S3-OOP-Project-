@@ -99,16 +99,16 @@ public class ExclusiveItems extends JFrame implements ActionListener{
 		bb2.setBackground(Color.DARK_GRAY);
 		bb2.setBounds(160,0,40,40);
 		bb2.setIcon(i3);
-		ImageIcon nn=new ImageIcon("/home/gautham/Desktop/OopMaster/editprof2.png");
+		ImageIcon nn=new ImageIcon("/home/gautham/Desktop/OopMaster/select.png");
 		image2.setIcon(nn);
 		image2.setBounds(200,0,400,800);
-		panel1.setBounds(200,0,400,800);
+		panel1.setBounds(200,-5,400,800);
 		panel1.add(image2);
 		add(panel1);
 		panel1.setVisible(false);
 		panel2.setBounds(0,0,600,600);
 		panel3.setBounds(0,0,200,600);
-		panel3.setBackground(Color.LIGHT_GRAY);
+		panel3.setBackground(Color.DARK_GRAY);
 		panel3.add(bb2);
 		panel3.add(bb3);
 		panel3.add(bb4);
@@ -173,7 +173,7 @@ public class ExclusiveItems extends JFrame implements ActionListener{
 		}
 		else if(p.getSource()==bb5) {
 			this.dispose();
-			ExclusiveItems excl=new ExclusiveItems("Exclusive Items");
+			ExclusiveItems excl = new ExclusiveItems("Exclusive Items");
 		}
 		else if(p.getSource()==bb6) {
 			
