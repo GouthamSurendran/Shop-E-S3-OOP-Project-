@@ -1,4 +1,4 @@
-package logins;
+
 
 import javax.swing.*;
 
@@ -9,8 +9,11 @@ import java.awt.event.*;
 public class Homepage extends JFrame implements ActionListener{
 
 	JButton b;
+	JLabel cart;
 	JPanel panel;
+	ImageIcon i3;
 	ImageIcon ii;
+	ImageIcon i2;
 	JLabel lb1;
 	JLabel lb2;
 	JLabel lb3;
@@ -27,18 +30,22 @@ public class Homepage extends JFrame implements ActionListener{
 		
 		super();
 		panel=new JPanel();
-		ii=new ImageIcon("/home/sourag/Desktop/select.jpg");
+		ii=new ImageIcon("/home/gautham/Desktop/OopMaster/select.png");
+		i2=new ImageIcon("/home/gautham/Desktop/OopMaster/cart.png");
 		lb1=new JLabel();
 		lb2=new JLabel("Username");
 		lb3=new JLabel("Password");
-		lb4=new JLabel("Phone Number");
+		lb4 = new JLabel("Welcome to Shop-E !");
+		i3=new ImageIcon("/home/gautham/Desktop/OopMaster/close.png");
 		lb5=new JLabel("Create an account here :");
-		tf2=new JTextField();
 		tf1=new JTextField();
 		pf1=new JPasswordField();
-		b1=new JButton("Submit");
-		b2=new JButton("Cancel");
+		b1=new JButton("Sign in");
+		b2=new JButton();
 		b3=new JButton("Sign Up");
+		
+		cart  = new JLabel();
+		
 		b1.addActionListener(this);
 		b2.addActionListener(this);
 		b3.addActionListener(this);
@@ -51,37 +58,42 @@ public class Homepage extends JFrame implements ActionListener{
 		setUndecorated(true);
 		lb1.setIcon(ii);
 		lb1.setBounds(0,0,500,500);
-		lb2.setBounds(50,100,150,20);
-		lb2.setForeground(Color.BLACK);
+		lb4.setBounds(110,60,300,30);
+		lb4.setFont(new Font("Kalimati",Font.ITALIC,24));
+		lb4.setForeground(Color.WHITE);
+		lb2.setBounds(50,150,150,20);
+		lb2.setForeground(Color.WHITE);
 		lb2.setFont(new Font("Kalimati",Font.ITALIC,22));
-		tf1.setBounds(300,100,150,30);
-		tf1.setBackground(Color.GRAY);
+		tf1.setBounds(300,150,150,30);
+		tf1.setBackground(new Color(0,0,0,15));
 		tf1.setForeground(Color.WHITE);
-		lb3.setBounds(50,200,150,20);
+		lb3.setBounds(50,250,150,20);
 		lb3.setFont(new Font("Kalimati",Font.ITALIC,22));
-		lb3.setForeground(Color.BLACK);
-		lb4.setBounds(50,300,200,20);
-		lb4.setFont(new Font("Kalimati",Font.ITALIC,22));
-		lb4.setForeground(Color.BLACK);
-		lb5.setBounds(100,450,200,20);
-		lb5.setFont(new Font("Ariel",Font.ITALIC,12));
-		lb5.setForeground(Color.BLACK);
-		pf1.setBackground(Color.GRAY);
+		lb3.setForeground(Color.WHITE);
+		lb5.setBounds(50,450,200,20);
+		lb5.setFont(new Font("Kalimati",Font.ITALIC,16));
+		lb5.setForeground(Color.WHITE);
+		pf1.setBackground(new Color(0,0,0,15));
 		pf1.setForeground(Color.WHITE);
-		pf1.setBounds(300,200,150,30);
-		tf2.setBounds(300,300,150,30);
-		tf2.setBackground(Color.GRAY);
-		tf2.setForeground(Color.WHITE);
+		pf1.setBounds(300,250,150,30);
 		b1.setFont(new Font("Kalimati",Font.ITALIC,21));
-		b2.setFont(new Font("Kalimati",Font.ITALIC,21));
+		b2.setFont(new Font("Kalimati",Font.PLAIN,21));
 		b1.setForeground(Color.GREEN);
-		b2.setForeground(Color.RED);
-		b1.setBounds(50,400,150,30);
-		b2.setBounds(300,400,150,30);
-		b3.setBounds(275,450,150,20);
-		b3.setFont(new Font("Ariel",Font.BOLD,12));
+		b1.setBackground(new Color(0,0,0,20));
+		b2.setForeground(Color.BLACK);
+		b1.setBounds(175,350,150,30);
+		b2.setBounds(465,0,40,30);
+		b3.setBounds(270,450,150,30);
+		b3.setFont(new Font("Kalimati",Font.ITALIC,18));
 		b3.setForeground(Color.RED);
-		b3.setBackground(new Color(0,0,0,64));
+		
+		cart.setBounds(370,30,150,100);
+		cart.setIcon(i2);
+		cart.setBackground(new Color(0,0,0,15));
+		
+		b2.setBackground(new Color(0,0,0,15));
+		b2.setIcon(i3);
+		b3.setBackground(new Color(0,0,0,15));
 		b3.setLayout(null);
 		
 		panel.add(b1);
@@ -92,9 +104,9 @@ public class Homepage extends JFrame implements ActionListener{
 		panel.add(lb1);
 		add(lb2);
 		add(lb4);
-		add(tf2);
 		add(lb5);
 		add(b3);
+		add(cart);
 		panel.setLayout(null);
 		panel.setSize(500,500);
 

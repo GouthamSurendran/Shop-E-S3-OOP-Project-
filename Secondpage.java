@@ -1,4 +1,4 @@
-package logins;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Secondpage extends JFrame implements ActionListener {
@@ -31,10 +32,9 @@ public class Secondpage extends JFrame implements ActionListener {
 	
 	
 	JLabel welcome;
-	JLabel what;
 	JButton smart;
 	JButton appliances;
-	JButton clothes;
+	JButton acc;
 	
 	Secondpage(){
 		super();
@@ -47,14 +47,14 @@ public class Secondpage extends JFrame implements ActionListener {
 		bb1=new JButton();
 		panel1=new JPanel();
 		image2=new JLabel();
-		i2=new ImageIcon("/home/sourag/Desktop/dots2.png");
+		i2=new ImageIcon("/home/gautham/Desktop/OopMaster/dots2.png");
 		bb3=new JButton("Edit Profile");
 		bb4=new JButton("View Cart");
 		bb5 = new JButton("Exclusive items");
 		bb6 = new JButton("Log Out");
 		bb7 = new JButton("Home");
 		bb2=new JButton();
-		i3=new ImageIcon("/home/sourag/Desktop/close.png");
+		i3=new ImageIcon("/home/gautham/Desktop/OopMaster/close.png");
 		panel3=new JPanel();
 		bb1.addActionListener(this);
 		bb2.addActionListener(this);
@@ -69,11 +69,10 @@ public class Secondpage extends JFrame implements ActionListener {
 		
 		//main
 		
-		welcome =new JLabel("Welcome to Shop-E");
-		what=new JLabel("What are you looking for ?");
+		welcome =new JLabel("What are you looking for today?");
 		smart=new JButton();
 		appliances = new JButton();
-		clothes = new JButton();
+		acc = new JButton();
 		
 		addAll();
 	}	
@@ -106,7 +105,7 @@ private void addAll(){
 	bb2.setBackground(Color.DARK_GRAY);
 	bb2.setBounds(160,0,40,40);
 	bb2.setIcon(i3);
-	ImageIcon nn=new ImageIcon("/home/sourag/Desktop/editprof2.png");
+	ImageIcon nn=new ImageIcon("/home/gautham/Desktop/OopMaster/editprof2.png");
 	image2.setIcon(nn);
 	image2.setBounds(200,0,400,800);
 	panel1.setBounds(200,0,400,800);
@@ -130,34 +129,28 @@ private void addAll(){
 	
 	//main
 	
-	welcome.setBounds(20,0,580,40);
+	welcome.setBounds(20,15,580,40);
 	welcome.setBackground(Color.DARK_GRAY);
-	welcome.setForeground(Color.GREEN);
-	welcome.setFont(new Font("Ariel",Font.ITALIC,26));
+	welcome.setForeground(Color.DARK_GRAY);
+	welcome.setFont(new Font("Comic sans",Font.BOLD,24));
 	welcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 	panel2.add(welcome);
-	what.setBounds(0,40,600,40);
-	what.setBackground(Color.DARK_GRAY);
-	what.setForeground(Color.BLACK);
-	what.setFont(new Font("Ariel",Font.ITALIC,20));
-	what.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-	panel2.add(what);
 	
 	
-	ImageIcon smr=new ImageIcon("/home/sourag/Desktop/smart.jpeg");
-	smart.setBounds(0,80,600,173);
+	ImageIcon smr=new ImageIcon("/home/gautham/Desktop/OopMaster/smart.png");
+	smart.setBounds(0,80,600,165);
 	smart.setIcon(smr);
 	panel2.add(smart);
 	
-	ImageIcon apl=new ImageIcon("/home/sourag/Desktop/appliances.jpeg");
-	appliances.setBounds(0,253,600,173);
+	ImageIcon apl=new ImageIcon("/home/gautham/Desktop/OopMaster/appliances.jpg");
+	appliances.setBounds(0,245,600,165);
 	appliances.setIcon(apl);
 	panel2.add(appliances);
 	
-	ImageIcon clo=new ImageIcon("/home/sourag/Desktop/clothes.jpeg");
-	clothes.setBounds(0,426,600,173);
-	clothes.setIcon(clo);
-	panel2.add(clothes);
+	ImageIcon clo=new ImageIcon("/home/gautham/Desktop/OopMaster/acc.jpg");
+	acc.setBounds(0,410,600,165);
+	acc.setIcon(clo);
+	panel2.add(acc);
 	
 	add(panel2);
 	add(panel3);
@@ -194,8 +187,13 @@ private void addAll(){
 			ExclusiveItems excl=new ExclusiveItems("Exclusive Items");
 		}
 		else if(p.getSource()==bb6) {
+			
+			int option = 	JOptionPane.showConfirmDialog(bb6, "Are you sure you want to Log Out?");
+			if(option == JOptionPane.YES_OPTION) {
 			this.dispose();
 			Homepage n=new Homepage();
+			}
+			
 		}
 		else if(p.getSource()==bb7) {
 			this.dispose();
