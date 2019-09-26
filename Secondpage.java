@@ -28,13 +28,17 @@ public class Secondpage extends JFrame implements ActionListener {
 	JLabel image2;
 	
 	
+	
+	
 	//main
 	
 	
 	JLabel welcome;
 	JButton smart;
 	JButton appliances;
-	JButton acc;
+	JButton bb0;
+	
+	JLabel phone;JLabel App;JLabel Acc;
 	
 	Secondpage(){
 		super();
@@ -54,6 +58,11 @@ public class Secondpage extends JFrame implements ActionListener {
 		bb6 = new JButton("Log Out");
 		bb7 = new JButton("Home");
 		bb2=new JButton();
+		
+		phone = new JLabel("SmartPhones");
+		App = new JLabel("Home appliances");
+		Acc = new JLabel("Mobile Accesories");
+		
 		i3=new ImageIcon("/home/gautham/Desktop/OopMaster/close.png");
 		panel3=new JPanel();
 		bb1.addActionListener(this);
@@ -72,7 +81,7 @@ public class Secondpage extends JFrame implements ActionListener {
 		welcome =new JLabel("What are you looking for today?");
 		smart=new JButton();
 		appliances = new JButton();
-		acc = new JButton();
+		bb0 = new JButton();
 		
 		addAll();
 	}	
@@ -111,6 +120,16 @@ private void addAll(){
 	panel1.setBounds(200,-5,400,800);
 	panel1.add(image2);
 	add(panel1);
+	
+	phone.setBounds(30,100,100,50);
+	phone.setFont(new Font("Kalimati",Font.ITALIC,16));
+	
+	App.setBounds(30,300,150,50);
+	App.setFont(new Font("Kalimati",Font.ITALIC,16));
+	
+	Acc.setBounds(30,500,150,50);
+	Acc.setFont(new Font("Kalimati",Font.ITALIC,16));
+	
 	panel1.setVisible(false);
 	panel2.setBounds(0,0,800,800);
 	panel3.setBounds(0,0,200,800);
@@ -138,20 +157,21 @@ private void addAll(){
 	
 	
 	ImageIcon smr=new ImageIcon("/home/gautham/Desktop/OopMaster/smart.png");
-	smart.setBounds(0,80,600,165);
+	smart.setBounds(200,80,400,165);
 	smart.setIcon(smr);
 	panel2.add(smart);
 	
 	ImageIcon apl=new ImageIcon("/home/gautham/Desktop/OopMaster/appliances.jpg");
-	appliances.setBounds(0,245,600,165);
+	appliances.setBounds(200,245,400,165);
 	appliances.setIcon(apl);
 	panel2.add(appliances);
 	
 	ImageIcon clo=new ImageIcon("/home/gautham/Desktop/OopMaster/acc.jpg");
-	acc.setBounds(0,410,600,165);
-	acc.setIcon(clo);
-	panel2.add(acc);
+	bb0.setBounds(200,410,400,165);
+	bb0.setIcon(clo);
+	panel2.add(bb0);
 	
+	add(phone);add(App);add(Acc);
 	add(panel2);
 	add(panel3);
 	setSize(600,600);
