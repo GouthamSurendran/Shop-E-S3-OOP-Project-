@@ -61,7 +61,7 @@ public class Secondpage extends JFrame implements ActionListener {
 		
 		phone = new JLabel("SmartPhones");
 		App = new JLabel("Home appliances");
-		Acc = new JLabel("Mobile Accesories");
+		Acc = new JLabel("Headphones");
 		
 		i3=new ImageIcon("/home/gautham/Desktop/OopMaster/close.png");
 		panel3=new JPanel();
@@ -182,6 +182,9 @@ private void addAll(){
 	public void actionPerformed(ActionEvent p) {
 		
 		if(p.getSource()==bb1) {
+			phone.setVisible(false);
+			App.setVisible(false);
+			Acc.setVisible(false);
 			bb1.setVisible(false);
 			panel3.setVisible(true);
 			panel2.setVisible(false);
@@ -189,6 +192,9 @@ private void addAll(){
 		}
 		else if(p.getSource()==bb2) {
 			bb1.setVisible(true);
+			phone.setVisible(true);
+			App.setVisible(true);
+			Acc.setVisible(true);
 			panel2.setVisible(true);
 			panel3.setVisible(false);
 			panel1.setVisible(false);

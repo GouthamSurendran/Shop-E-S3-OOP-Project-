@@ -1,5 +1,4 @@
 
-
 import javax.swing.*;
 
 import java.awt.Color;
@@ -121,11 +120,19 @@ public class Homepage extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		
+		String s = "root"; String p = "root";
+		
 		if(e.getSource()==b1) {
-			setVisible(false);
+			//setVisible(false);
+			dispose();
 			String s1=tf1.getText();
 			String s2=pf1.getText();
-			if(!s1.equals("") && !s2.equals("")) {
+			
+			if(s1.equals(s) && s2.equals(p))
+			{
+				adminLogin smthn = new adminLogin("Administrator");
+			}
+			else if(!s1.equals("") && !s2.equals("")) {
 				Secondpage t= new Secondpage("Shop-E");
 				}
 			else{
@@ -136,7 +143,7 @@ public class Homepage extends JFrame implements ActionListener{
 		else if(e.getSource()==b2)System.exit(0);
 		else {
 			this.dispose();
-			CreateAccount n=new CreateAccount("Create Account");
+			new CreateAccount("Create Account");
 		}
 	}
 	
