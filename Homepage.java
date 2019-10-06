@@ -130,7 +130,7 @@ public class Homepage extends JFrame implements ActionListener{
 			
 			if(s1.equals(s) && s2.equals(p))
 			{
-				adminLogin smthn = new adminLogin("Administrator");
+				new adminLogin("Administrator");
 			}
 			else if(!s1.equals("") && !s2.equals("")) {
 				Secondpage t= new Secondpage("Shop-E");

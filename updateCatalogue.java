@@ -3,41 +3,37 @@
 import javax.swing.*;
 
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.*;
 
-public class ViewCart extends JFrame implements ActionListener{
+public class updateCatalogue extends JFrame implements ActionListener{
 
 	  String[][] data = { 
-	            { "Xiaomi Poco f1", "1", "22,999.50" }, 
-	            { "Poco phone cover", "2", "299.0" } 
+	            { "Xiaomi Poco f1", "150", "22,999.50" }, { "Poco phone cover", "200", "299.0" }
+	            ,{"Boat Rockerz 600","50","2000.0"},
 	        }; 
-	  String[] columnNames = { "ProductName", "Quantity", "Cost" }; 
+	  String[] columnNames = { "ProductName", "Quantity", "Current Price" }; 
 	  
 
 	JTable j;
 	JPanel panel1;
 	JScrollPane sp ;
-	JTextField tf;
 	JButton b;
 	JButton b1;
 	JPanel panel2;
 	JLabel lb;
 	
 	
-	ViewCart(){
+	updateCatalogue(){
 		super();
 	}
 	
-	ViewCart(String S){
+	updateCatalogue(String S){
 		super(S);
 		  j = new JTable(data, columnNames); 
-		  tf = new JTextField("23,298.50");
-		  b=new JButton("CheckOut");
+		  b=new JButton("Update list");
 		  b1=new JButton("Go Back");
 		  panel1=new JPanel(new BorderLayout(10,5));
 		  panel2=new JPanel();
@@ -49,10 +45,9 @@ public class ViewCart extends JFrame implements ActionListener{
 	}
 	
 	private void addAll() {
-	    j.setPreferredScrollableViewportSize(new Dimension(500, 150));
+	    j.setPreferredScrollableViewportSize(new Dimension(500, 400));
 		sp=new JScrollPane(j);
 		panel1.add(sp, BorderLayout.CENTER);
-		panel1.add(tf,BorderLayout.SOUTH);
 		b.setFont(new Font("Ariel",Font.ITALIC,18));
 		b.setBackground(Color.LIGHT_GRAY);
 		b.setForeground(Color.BLUE);
@@ -62,14 +57,11 @@ public class ViewCart extends JFrame implements ActionListener{
 		panel2.add(panel1);
 		panel2.add(b);
 		panel2.add(b1);
-		tf.setBackground(Color.WHITE);
-		tf.setEditable(false);
-		j.setEnabled(false);
 		getContentPane().add(panel2);
 		setVisible(true);
 		validate();
 		pack();
-		setSize(700,400);
+		setSize(600,600);
 		setLocationRelativeTo(null);
 		
 		
@@ -77,7 +69,7 @@ public class ViewCart extends JFrame implements ActionListener{
 public void actionPerformed(ActionEvent e) {
 	if(e.getSource()==b1) {
 		this.dispose();
-		Secondpage n=new Secondpage("Shop-E");
+		new adminLogin("Administrator");
 	}
 }
 }

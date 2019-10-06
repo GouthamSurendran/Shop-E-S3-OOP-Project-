@@ -52,7 +52,7 @@ public class editprof extends JFrame implements ActionListener{
 		panel2=new JPanel();
 		panel1=new JPanel();
 		bb1=new JButton();
-		i2=new ImageIcon("/home/gautham/Desktop/OopMaster/dots2.png");
+		i2=new ImageIcon("/home/gautham/Desktop/OopMaster/img.png");
 		bb3=new JButton("Edit Profile");
 		bb4=new JButton("View Cart");
 		bb5 = new JButton("Exclusive items");
@@ -127,8 +127,8 @@ public class editprof extends JFrame implements ActionListener{
 		panel2.setLayout(null);
 		bb1.setIcon(i2);
 		setFont(new Font("Arial",Font.ITALIC,18));
-		bb1.setBounds(0,0,20,40);
-		bb1.setBackground(Color.DARK_GRAY);
+		bb1.setBounds(0,0,30,35);
+		bb1.setBackground(new Color(0,0,0,15));
 		panel2.add(bb1);
 		panel2.setVisible(true);
 		bb3.setBounds(0,40,200,40);
