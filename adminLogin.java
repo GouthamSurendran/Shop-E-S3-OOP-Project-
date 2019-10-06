@@ -36,6 +36,7 @@ public class adminLogin extends JFrame implements ActionListener{
 		panel = new JPanel();
 		back.addActionListener(this);
 		update.addActionListener(this);
+		viewcustomer.addActionListener(this);
 		
 		addAll();
 	}
@@ -92,6 +93,10 @@ public class adminLogin extends JFrame implements ActionListener{
 		}
 		else if(p.getSource()==update) {
 			new updateCatalogue("Update items list");
+			this.dispose();
+		}
+		else if(p.getSource()==viewcustomer) {
+			new customerInfo();
 			this.dispose();
 		}
 	}
