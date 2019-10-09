@@ -146,7 +146,7 @@ import java.util.*
 				       }
 				    }
 				    if(check) {
-				    	new Secondpage("E-Tailing");
+				    	new Secondpage("Shop-E");
 				    }
 				    else {
 				    	JOptionPane.showMessageDialog(null, "Please Sign-Up");

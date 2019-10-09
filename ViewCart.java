@@ -1,7 +1,6 @@
 
 import javax.swing.table.*;
 import javax.swing.*;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,6 +8,7 @@ import java.awt.Font;
 import java.awt.event.*;
 import java.util.*;
 import java.io.*;
+
 public class ViewCart extends JFrame implements ActionListener{
 
 	String[] data = new String[3];
@@ -90,7 +90,7 @@ public void actionPerformed(ActionEvent e) {
 		new Secondpage("Shop-E");
 	}
 	else if(e.getSource()==b){
-		this.dispose();
+		dispose();
 		new order();
 	}
 }

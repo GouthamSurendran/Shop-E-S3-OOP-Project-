@@ -72,7 +72,7 @@ public class order extends JFrame implements ActionListener{
 				JOptionPane.showMessageDialog(null, f);
 			}
 			this.dispose();
-			new Homepage();
+			new Secondpage("Shop-E");
 		}
 	}
 }

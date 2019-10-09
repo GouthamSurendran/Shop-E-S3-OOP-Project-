@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import javax.swing.*;
 public class oneplus extends JFrame implements ActionListener{
 	JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10;
-	JButton b1;
+	JButton b1;JButton b2;
 	JPanel panel1;
 	
 	oneplus(){
@@ -22,10 +22,12 @@ public class oneplus extends JFrame implements ActionListener{
 		l7=new JLabel("3800mAh");
 		l8=new JLabel("Price");
 		l9=new JLabel("Rs 37999");
-		l10=new JLabel();
+		l10=new JLabel();		
 		b1=new JButton("ADD TO CART");
+		b2 = new JButton("GO BACK");
 		panel1=new JPanel();
 		b1.addActionListener(this);
+		b2.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		addAll();
 	}
@@ -61,6 +63,10 @@ public class oneplus extends JFrame implements ActionListener{
 		b1.setFont(new Font("Kalimati",Font.ITALIC,21));
 		b1.setForeground(Color.GREEN);
 		b1.setBackground(new Color(0,0,0,20));
+		b2.setBounds(50,410,200,30);
+		b2.setFont(new Font("Kalimati",Font.ITALIC,21));
+		b2.setForeground(Color.GREEN);
+		b2.setBackground(new Color(0,0,0,20));
 		ImageIcon ip1=new ImageIcon("/home/gautham/Desktop/OopMaster/oneplus7t.png");
 		l10.setBounds(280,40,300,500);
 		l10.setIcon(ip1);
@@ -73,6 +79,7 @@ public class oneplus extends JFrame implements ActionListener{
 		panel1.add(l8);
 		panel1.add(l9);
 		panel1.add(b1);
+		panel1.add(b2);
 		panel1.add(l10);
 		panel1.add(l1);
 		panel1.setLayout(null);
@@ -98,5 +105,9 @@ public class oneplus extends JFrame implements ActionListener{
 			catch(Exception f){
 				JOptionPane.showMessageDialog(null, f);
 			}		}
+		else if(e.getSource()==b2) {
+			dispose();
+			new ExclusiveItems();
+		}
 	}
 }
