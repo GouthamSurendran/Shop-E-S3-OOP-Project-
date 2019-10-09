@@ -1,11 +1,11 @@
-
+import java.io.*;
 import javax.swing.*;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
-
-public class Homepage extends JFrame implements ActionListener{
+import java.util.*
+;public class Homepage extends JFrame implements ActionListener{
 
 	JButton b;
 	JLabel cart;
@@ -132,9 +132,31 @@ public class Homepage extends JFrame implements ActionListener{
 			{
 				new adminLogin("Administrator");
 			}
-			else if(!s1.equals("") && !s2.equals("")) {
-				Secondpage t= new Secondpage("Shop-E");
+			else if(!s1.equals("") && !s2.equals("")){
+				try {
+					File file=new File("/home/gautham/Desktop/OopMaster/users.txt");
+				    Scanner read = new Scanner(file);
+				    read.useDelimiter("\\n|,");
+				    boolean check=false;
+				    while(read.hasNext()){
+				       String user = read.next();
+				       String pass = read.next();
+				       if(s1.equals(user) && s2.equals(pass)) {
+				    	  check=true;
+				       }
+				    }
+				    if(check) {
+				    	new Secondpage("E-Tailing");
+				    }
+				    else {
+				    	JOptionPane.showMessageDialog(null, "Please Sign-Up");
+				    	new Homepage();
+				      }
 				}
+				catch(Exception f) {
+					JOptionPane.showMessageDialog(null, f);
+				}
+			}
 			else{
 				JOptionPane.showMessageDialog(null, "Username or password incorrect");
 				System.exit(0);

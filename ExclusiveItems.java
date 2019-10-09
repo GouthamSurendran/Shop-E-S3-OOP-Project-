@@ -1,4 +1,6 @@
 
+import java.io.FileWriter;
+
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
@@ -65,6 +67,8 @@ public class ExclusiveItems extends JFrame implements ActionListener{
 		excl =new JLabel("Our Exclusive Items's space");
 		iphone = new JButton();
 		oneplus = new JButton();
+		iphone.addActionListener(this);
+		oneplus.addActionListener(this);
 		
 		addAll();
 	}
@@ -165,26 +169,40 @@ public class ExclusiveItems extends JFrame implements ActionListener{
 		}
 		else if(p.getSource()==bb3) {
 			this.dispose();
-			editprof n=new editprof("Edit Profile");
+			new editprof("Edit Profile");
 		}
 		else if(p.getSource()==bb4) {
 			dispose();
-			ViewCart s =new ViewCart("ViewCart");
+			new ViewCart("ViewCart");
 		}
 		else if(p.getSource()==bb5) {
 			this.dispose();
-			ExclusiveItems excl = new ExclusiveItems("Exclusive Items");
+			new ExclusiveItems("Exclusive Items");
 		}
 		else if(p.getSource()==bb6) {
 			
 			int option = 	JOptionPane.showConfirmDialog(bb6, "Are you sure you want to Log Out?");
 			if(option == JOptionPane.YES_OPTION) {
 			this.dispose();
-			Homepage n=new Homepage();
+			try {
+				FileWriter file=new FileWriter("/home/gautham/Desktop/OopMaster/products.txt");
+				file.write("");
+				file.close();
+			}
+			catch(Exception e) {
+				JOptionPane.showMessageDialog(null, e);
+			}
+			new Homepage();
 			}}
 		else if(p.getSource()==bb7) {
 			dispose();
-			Secondpage smthn = new Secondpage("Welcome to Shop-E");
+			new Secondpage("Welcome to Shop-E");
+		}
+		else if(p.getSource()==iphone) {
+			new iphone();
+		}
+		else if(p.getSource()==oneplus) {
+			new oneplus();
 		}
 	
 }

@@ -1,22 +1,18 @@
 
-
+import javax.swing.table.*;
 import javax.swing.*;
 
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.*;
-
+import java.util.*;
+import java.io.*;
 public class ViewCart extends JFrame implements ActionListener{
 
-	  String[][] data = { 
-	            { "Xiaomi Poco f1", "1", "22,999.50" }, 
-	            { "Poco phone cover", "2", "299.0" } 
-	        }; 
-	  String[] columnNames = { "ProductName", "Quantity", "Cost" }; 
+	String[] data = new String[3];
+	  String[] columnNames = { "ProductName", "Cost" }; 
 	  
 
 	JTable j;
@@ -27,7 +23,7 @@ public class ViewCart extends JFrame implements ActionListener{
 	JButton b1;
 	JPanel panel2;
 	JLabel lb;
-	
+	DefaultTableModel dtm = new DefaultTableModel(null,columnNames);
 	
 	ViewCart(){
 		super();
@@ -35,8 +31,18 @@ public class ViewCart extends JFrame implements ActionListener{
 	
 	ViewCart(String S){
 		super(S);
-		  j = new JTable(data, columnNames); 
-		  tf = new JTextField("23,298.50");
+		try {
+		  j = new JTable(dtm); 
+		    File file = new File("/home/gautham/Desktop/OopMaster/products.txt");
+		    int price=0;
+		    Scanner input = new Scanner(file);
+		    while (input.hasNextLine()) {
+		        data= input.nextLine().split(",");
+		        dtm.addRow(data);
+		        price+=Integer.parseInt(data[1]);
+		    }	    
+		   input.close();
+		  tf = new JTextField(Integer.toString(price));
 		  b=new JButton("CheckOut");
 		  b1=new JButton("Go Back");
 		  panel1=new JPanel(new BorderLayout(10,5));
@@ -45,6 +51,10 @@ public class ViewCart extends JFrame implements ActionListener{
 		  b1.addActionListener(this);
 		  this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		  addAll();
+		}
+		catch(Exception f){
+			JOptionPane.showMessageDialog(null, f);
+		}
 		  
 	}
 	
@@ -77,7 +87,11 @@ public class ViewCart extends JFrame implements ActionListener{
 public void actionPerformed(ActionEvent e) {
 	if(e.getSource()==b1) {
 		this.dispose();
-		Secondpage n=new Secondpage("Shop-E");
+		new Secondpage("Shop-E");
+	}
+	else if(e.getSource()==b){
+		this.dispose();
+		new order();
 	}
 }
 }

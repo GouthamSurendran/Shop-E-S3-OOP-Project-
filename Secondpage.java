@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -202,28 +203,36 @@ private void addAll(){
 		else if(p.getSource()==bb3) {
 			setVisible(false);
 			dispose();
-			editprof t =new editprof("EditProfile");
+			new editprof("EditProfile");
 		}
 		else if(p.getSource()==bb4) {
 			setVisible(false);
-			ViewCart s =new ViewCart("ViewCart");
+			new ViewCart("ViewCart");
 		}
 		else if(p.getSource()==bb5) {
 			this.dispose();
-			ExclusiveItems excl=new ExclusiveItems("Exclusive Items");
+			new ExclusiveItems("Exclusive Items");
 		}
 		else if(p.getSource()==bb6) {
 			
 			int option = 	JOptionPane.showConfirmDialog(bb6, "Are you sure you want to Log Out?");
 			if(option == JOptionPane.YES_OPTION) {
 			this.dispose();
-			Homepage n=new Homepage();
+			try {
+				FileWriter file=new FileWriter("/home/gautham/Desktop/OopMaster/products.txt");
+				file.write("");
+				file.close();
+			}
+			catch(Exception e) {
+				JOptionPane.showMessageDialog(null, e);
+			}
+			new Homepage();
 			}
 			
 		}
 		else if(p.getSource()==bb7) {
 			this.dispose();
-			Secondpage n=new Secondpage("Shop-E");
+			new Secondpage("Shop-E");
 		}
 	}
 	

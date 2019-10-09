@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
+
+import java.io.*;
 public class CreateAccount extends JFrame implements ActionListener{
 	
 	JLabel cart;    //LOGO
@@ -138,12 +140,39 @@ public class CreateAccount extends JFrame implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==b1) {
+			if(!(pf1.getText().equals(pf2.getText()))) {
+				JOptionPane.showMessageDialog(null, "Password don't match");
+			}
+			else {
+			try {
+				File file=new File("/home/gautham/Desktop/OopMaster/users.txt");
+			FileWriter fw=new FileWriter(file,true);
+			String user=tf4.getText();
+			String pass=pf1.getText();
+			String total= user+","+pass+"\n";
+			fw.write(total);
+			fw.close();
+			File filee=new File("/home/gautham/Desktop/OopMaster/details.txt");
+			FileWriter fww=new FileWriter(filee,true);
+			String name=tf1.getText();
+			String email=tf2.getText();
+			String phone=tf3.getText();
+			String username=tf4.getText();
+			String password=pf1.getText();
+			String totall= username+","+name+","+email+","+phone+"\n";
+			fww.write(totall);
+			fww.close();
+			}
+			catch(Exception f){
+				JOptionPane.showMessageDialog(null, f);
+			}
 			JOptionPane.showMessageDialog(null,"Registration Successfull");
-			Homepage n=new Homepage();
+			new Homepage();
 			this.dispose();
+			}
 		}
 		else {
-			Homepage n=new Homepage();
+			new Homepage();
 			this.dispose();
 		}
 	}

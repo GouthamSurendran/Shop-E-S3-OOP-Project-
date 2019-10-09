@@ -1,4 +1,8 @@
-
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.*;
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
@@ -6,8 +10,8 @@ import java.awt.event.*;
 
 public class editprof extends JFrame implements ActionListener{
 
-	JLabel jb1;JLabel jb2;JLabel jb3;JLabel jb4;
-	JTextField tf1;JPasswordField tf4;JTextField tf3;JTextField tf2;
+	JLabel jb1;JLabel jb2;JLabel jb3;JLabel jb4,lb1,lb2;
+	JTextField tf1;JPasswordField tf4;JTextField tf3;JTextField tf2,tff,tf5;
 	JButton Jb;
 	
 	//Leftwindow code.
@@ -33,16 +37,18 @@ public class editprof extends JFrame implements ActionListener{
 	
 	editprof(String S){
 		super(S);
-		
+		lb1=new JLabel("Current Username");
+		lb2=new JLabel("Change Name");
 		jb1 = new JLabel("Change Username");
 		jb2 = new JLabel("Change E-mail");
 		jb3 = new JLabel("Change Number");
 		jb4 = new JLabel("Change Password");
-		
+		tff=new JTextField();
 		tf1 = new JTextField();
 		tf2 = new JTextField();
 		tf3 = new JTextField();
 		tf4 = new JPasswordField();
+		tf5 = new JTextField();
 		Jb  = new JButton("Save Changes");
 		image  = new JLabel();
 		image2 = new JLabel();
@@ -68,44 +74,59 @@ public class editprof extends JFrame implements ActionListener{
 		bb5.addActionListener(this);
 		bb6.addActionListener(this);
 		bb7.addActionListener(this);
+		Jb.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		addAll();
 		
 	}
 	
 	private void addAll() {
-		
-		jb1.setBounds(60,80,200,40);
+		lb1.setBounds(60,40,200,40);
+		panel2.add(lb1);
+		lb1.setFont(new Font("Kalimati",Font.ITALIC,18));
+		lb1.setForeground(Color.WHITE);
+		lb2.setBounds(60,440,200,40);
+		panel2.add(lb2);
+		lb2.setFont(new Font("Kalimati",Font.ITALIC,18));
+		lb2.setForeground(Color.WHITE);
+		jb1.setBounds(60,120,200,40);
 		panel2.add(jb1);
 		jb1.setFont(new Font("Kalimati",Font.ITALIC,18));
 		jb1.setForeground(Color.WHITE);
-		jb2.setBounds(60,160,200,40);
+		jb2.setBounds(60,200,200,40);
 		jb2.setFont(new Font("Kalimati",Font.ITALIC,18));
 		jb2.setForeground(Color.WHITE);
 		panel2.add(jb2);
-		jb3.setBounds(60,240,200,40);
+		jb3.setBounds(60,280,200,40);
 		jb3.setFont(new Font("Kalimati",Font.ITALIC,18));
 		jb3.setForeground(Color.WHITE);
 		panel2.add(jb3);
-		jb4.setBounds(60,320,200,40);
+		jb4.setBounds(60,360,200,40);
 		jb4.setFont(new Font("Kalimati",Font.ITALIC,18));
 		jb4.setForeground(Color.WHITE);
 		panel2.add(jb4);
 		
-		tf1.setBounds(280,80,180,35);
+		tff.setBounds(280,40,180,35);
+		tff.setBackground(new Color(0,0,0,15));
+		panel2.add(tff);
+		
+		tf1.setBounds(280,120,180,35);
 		tf1.setBackground(new Color(0,0,0,15));
 		panel2.add(tf1);
-		tf2.setBounds(280,160,180,35);
+		tf2.setBounds(280,200,180,35);
 		tf2.setBackground(new Color(0,0,0,15));
 		panel2.add(tf2);
-		tf3.setBounds(280,240,180,35);
+		tf3.setBounds(280,280,180,35);
 		tf3.setBackground(new Color(0,0,0,15));
 		panel2.add(tf3);
-		tf4.setBounds(280,320,180,35);
+		tf4.setBounds(280,360,180,35);
 		tf4.setBackground(new Color(0,0,0,15));
 		panel2.add(tf4);
+		tf5.setBounds(280,440,180,35);
+		tf5.setBackground(new Color(0,0,0,15));
+		panel2.add(tf5);
 		
-		Jb.setBounds(280,420,180,40);
+		Jb.setBounds(200,500,180,40);
 		panel2.add(Jb);
 		Jb.setBackground(new Color(0,0,0,15));
 		Jb.setForeground(Color.WHITE);
@@ -187,26 +208,98 @@ public class editprof extends JFrame implements ActionListener{
 			}
 			else if(p.getSource()==bb3) {
 				this.dispose();
-				editprof n=new editprof("Edit Profile");
+				new editprof("Edit Profile");
 			}
 			else if(p.getSource()==bb4) {
 				dispose();
-				ViewCart s =new ViewCart("ViewCart");
+				new ViewCart("ViewCart");
 			}
 			else if(p.getSource()==bb5) {
 				this.dispose();
-				ExclusiveItems excl=new ExclusiveItems("Exclusive Items");
+				new ExclusiveItems("Exclusive Items");
 			}
 			else if(p.getSource()==bb6) {
 				
 				int option = 	JOptionPane.showConfirmDialog(bb6, "Are you sure you want to Log Out?");
 				if(option == JOptionPane.YES_OPTION) {
 				this.dispose();
-				Homepage n=new Homepage();
+				try {
+					FileWriter file=new FileWriter("/home/gautham/Desktop/OopMaster/products.txt");
+					file.write("");
+					file.close();
+				}
+				catch(Exception e) {
+					JOptionPane.showMessageDialog(null, e);
+				}
+				new Homepage();
 				}}
 			else if(p.getSource()==bb7) {
 				dispose();
-				Secondpage smthn = new Secondpage("Welcome to Shop-E");
+				new Secondpage("Welcome to Shop-E");
+			}
+			else if(p.getSource()==Jb) {
+				try {
+				File inputFile = new File("/home/gautham/Desktop/OopMaster/details.txt");
+				File tempFile = new File("/home/gautham/Desktop/OopMaster/myTempFile.txt");
+
+				BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+				BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+				String start = tff.getText();
+				String currentLine;
+
+				while((currentLine = reader.readLine()) != null) {
+				    String trimmedLine = currentLine.trim();
+				    if(trimmedLine.startsWith(start )) continue;
+				    writer.write(currentLine + System.getProperty("line.separator"));
+				}
+				writer.close(); 
+				reader.close(); 
+				tempFile.renameTo(inputFile);
+			File filee=new File("/home/gautham/Desktop/OopMaster/details.txt");
+			FileWriter fww=new FileWriter(filee,true);
+			String email=tf2.getText();
+			String phone=tf3.getText();
+			String username=tf1.getText();
+			String name=tf5.getText();
+			String totall= username+","+name+","+email+","+phone+"\n";
+			fww.write(totall);
+			fww.close();
+				}
+				catch(Exception f) {
+					JOptionPane.showMessageDialog(null, f);
+				}
+				
+				try {
+				File inputFile = new File("/home/gautham/Desktop/OopMaster/users.txt");
+				File tempFile = new File("/home/gautham/Desktop/OopMaster/myTempFile.txt");
+
+				BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+				BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+				String start = tff.getText();
+				String currentLine;
+
+				while((currentLine = reader.readLine()) != null) {
+				    String trimmedLine = currentLine.trim();
+				    if(trimmedLine.startsWith(start )) continue;
+				    writer.write(currentLine + System.getProperty("line.separator"));
+				}
+				writer.close(); 
+				reader.close(); 
+				tempFile.renameTo(inputFile);
+				File file=new File("/home/gautham/Desktop/OopMaster/users.txt");
+			FileWriter fw=new FileWriter(file,true);
+			String user=tf1.getText();
+			String pass=tf4.getText();
+			String total= user+","+pass+"\n";
+			fw.write(total);
+			fw.close();
+				}
+				catch(Exception f) {
+					JOptionPane.showMessageDialog(null, f);
+				}
+				JOptionPane.showMessageDialog(null, "Profile Successfully Updated");
 			}
 		
 		}

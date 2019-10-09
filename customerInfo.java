@@ -6,14 +6,14 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.*;
+import java.io.File;
+import java.util.Scanner;
 
+import javax.swing.table.*;
 public class customerInfo extends JFrame implements ActionListener{
 	
 
-	  String[][] data = { 
-	            { "psycho_Shammi707", "Sarath", "kallapsycho@gmail.com","9231231358" }, 
-	            { "padthai_kundan", "Vaishnav Sivaprasad Sivaprasad Sivaprasad Sivaprasad Sivaprasad * 2000X", "kallapsycho@gmail.com","938383823" } 
-	        }; 
+	  String[] data=new String[4];
 	  String[] columnNames = { "Username", "Name", "E-mail","Phone number" }; 
 	  
 
@@ -25,16 +25,30 @@ public class customerInfo extends JFrame implements ActionListener{
 	JPanel panel2;
 	JLabel lb;
 	
-	
+	DefaultTableModel dtm = new DefaultTableModel(null,columnNames);
+
 	customerInfo(){
 		super();
-		  j = new JTable(data, columnNames); 
+		 j = new JTable(dtm); 
+		try {
+			  j = new JTable(dtm); 
+			    File file = new File("/home/gautham/Desktop/OopMaster/details.txt");
+			    Scanner input = new Scanner(file);
+			    while (input.hasNextLine()) {
+			        data= input.nextLine().split(",");
+			        dtm.addRow(data);
+			    }	    
+			   input.close();
 		  tf = new JTextField("Total number of customers" +","+ "Add count variable here");
 		  b1=new JButton("Go Back");
 		  panel1=new JPanel(new BorderLayout(10,5));
 		  panel2=new JPanel();
 		  b1.addActionListener(this);
 		  this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		}
+		catch(Exception f){
+			JOptionPane.showMessageDialog(null, f);
+		}
 		  addAll();
 		  
 	}
