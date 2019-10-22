@@ -130,25 +130,25 @@ public class ExclusiveItems extends JFrame implements ActionListener{
 		
 		excl.setBounds(20,0,580,80);
 		excl.setBackground(Color.DARK_GRAY);
-		excl.setForeground(Color.GREEN);
+		excl.setForeground(Color.DARK_GRAY);
 		excl.setFont(new Font("Ariel",Font.ITALIC,30));
 		excl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		panel2.add(excl);
 		
-		ImageIcon ip=new ImageIcon("/home/gautham/Desktop/OopMaster/iphone.jpeg");
-		iphone.setBounds(0,80,600,260);
+		ImageIcon ip=new ImageIcon("/home/gautham/Desktop/OopMaster/eleven.jpg");
+		iphone.setBounds(0,70,600,260);
 		iphone.setIcon(ip);
 		panel2.add(iphone);
 		
-		ImageIcon one=new ImageIcon("/home/gautham/Desktop/OopMaster/oneplus.jpeg");
-		oneplus.setBounds(0,340,600,260);
+		ImageIcon one=new ImageIcon("/home/gautham/Desktop/OopMaster/7t.jpg");
+		oneplus.setBounds(0,330,600,260);
 		oneplus.setIcon(one);
 		panel2.add(oneplus);
 		
 		
 		add(panel2);
 		add(panel3);
-		setSize(600,600);
+		setSize(600,610);
 		setLayout(null);
 		setLocationRelativeTo(null);
 	}

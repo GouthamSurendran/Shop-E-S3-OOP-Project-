@@ -60,6 +60,10 @@ public class Secondpage extends JFrame implements ActionListener {
 		bb7 = new JButton("Home");
 		bb2=new JButton();
 		
+		smart=new JButton();
+		appliances = new JButton();
+		bb0 = new JButton();
+		
 		phone = new JLabel("SmartPhones");
 		App = new JLabel("Home appliances");
 		Acc = new JLabel("Headphones");
@@ -73,6 +77,9 @@ public class Secondpage extends JFrame implements ActionListener {
 		bb5.addActionListener(this);
 		bb6.addActionListener(this);
 		bb7.addActionListener(this);
+		smart.addActionListener(this);
+		appliances.addActionListener(this);
+		bb0.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
@@ -80,9 +87,7 @@ public class Secondpage extends JFrame implements ActionListener {
 		//main
 		
 		welcome =new JLabel("What are you looking for today?");
-		smart=new JButton();
-		appliances = new JButton();
-		bb0 = new JButton();
+		
 		
 		addAll();
 	}	
@@ -234,6 +239,20 @@ private void addAll(){
 			this.dispose();
 			new Secondpage("Shop-E");
 		}
+		else if(p.getSource()==smart) {
+			this.dispose();
+			new SmartPhones("Smartphones");
+		}
+		else if(p.getSource()==appliances) {
+			this.dispose();
+			new Appliances("Home Appliances");
+		}
+		else if(p.getSource()==bb0) {
+			this.dispose();
+			new Headphones("Headphones");
+		}
+		
+		
 	}
 	
 	

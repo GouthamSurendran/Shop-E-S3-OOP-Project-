@@ -149,7 +149,7 @@ import java.util.*
 				    	new Secondpage("Shop-E");
 				    }
 				    else {
-				    	JOptionPane.showMessageDialog(null, "Please Sign-Up");
+				    	JOptionPane.showMessageDialog(null, "Authentication failed");
 				    	new Homepage();
 				      }
 				}
@@ -157,10 +157,10 @@ import java.util.*
 					JOptionPane.showMessageDialog(null, f);
 				}
 			}
-			else{
-				JOptionPane.showMessageDialog(null, "Username or password incorrect");
-				System.exit(0);
-			}
+//			else{
+//				JOptionPane.showMessageDialog(null, "Username or password incorrect");
+//				System.exit(0);
+//			}
 		}
 		else if(e.getSource()==b2)System.exit(0);
 		else {
