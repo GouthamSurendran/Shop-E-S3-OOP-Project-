@@ -7,8 +7,8 @@ import javax.swing.*;
 public class adminLogin extends JFrame implements ActionListener{
 
 	JLabel admin;
-	JButton update;         //Increases the number of already updated product stocks.
-	JButton viewcustomer;   // should show some customer info and also contain a method that denies a specific customer to login.(blocks)
+	JButton update;         
+	JButton viewcustomer;   
 	JButton back;
 	JPanel panel;
 	JLabel lb1;
@@ -26,7 +26,7 @@ public class adminLogin extends JFrame implements ActionListener{
 		super(S);
 		
 		admin = new JLabel("Admin page.");
-		update = new JButton("Update Catalogue");
+		update = new JButton("View Catalogue");
 		viewcustomer = new JButton("Customer Info");
 		back = new JButton("<--");
 		ii=new ImageIcon("/home/gautham/Desktop/OopMaster/select.png");
@@ -92,7 +92,7 @@ public class adminLogin extends JFrame implements ActionListener{
 			this.dispose();
 		}
 		else if(p.getSource()==update) {
-			new updateCatalogue("Update items list");
+			new viewCatalogue("Update items list");
 			this.dispose();
 		}
 		else if(p.getSource()==viewcustomer) {

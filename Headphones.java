@@ -299,7 +299,7 @@ public class Headphones extends JFrame implements ActionListener{
 			try {
 				File file=new File("/home/gautham/Desktop/OopMaster/products.txt");
 			FileWriter fw=new FileWriter(file,true);
-			fw.write("Redmi Note 8 Pro,16999\n");
+			fw.write("Realme buds wireless,1799\n");
 			fw.close();
 			JOptionPane.showMessageDialog(null, "Added to cart");
 			}
@@ -310,7 +310,7 @@ public class Headphones extends JFrame implements ActionListener{
 				try {
 					File file=new File("/home/gautham/Desktop/OopMaster/products.txt");
 				FileWriter fw=new FileWriter(file,true);
-				fw.write("Asus Rog Phone 2,37999\n");
+				fw.write("OnePlus Bullets Wireless 2,5699\n");
 				fw.close();
 				JOptionPane.showMessageDialog(null, "Added to cart");
 				}

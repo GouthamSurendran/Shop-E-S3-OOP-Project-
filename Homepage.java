@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.*;
-import java.util.*
-;public class Homepage extends JFrame implements ActionListener{
+import java.util.*;
+public class Homepage extends JFrame implements ActionListener{
 
 	JButton b;
 	JLabel cart;
@@ -168,7 +168,6 @@ import java.util.*
 			new CreateAccount("Create Account");
 		}
 	}
-	
 	
 	
 	
